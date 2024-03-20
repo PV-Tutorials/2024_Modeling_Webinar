@@ -1,18 +1,15 @@
 # OSS Webinar Python Tutorial
 Welcome! The goal of this tutorial is to introduce attendees to the following packages:
 * PySAM: https://nrel-pysam.readthedocs.io/en/main/
-* RdTools[https://pvlib-python.readthedocs.io/en/stable/]
+* pvlib-python: https://pvlib-python.readthedocs.io/en/stable/
 
 ## Tutorial Setup
 These tutorials are made with [Jupyter](https://jupyter.org), which is a
-browser based interactive Python notebook that allows you to run the tutorials
-in the cloud without any additional setup.
+browser based interactive Python notebook.
 
 ### Jupyter Books
 
-The tutorial content will soon be hosted as a [Jupyter book](https://jupyterbook.org/intro.html).
-This book has navigation, search, and can be used to launch each book in Colaboratory.
-Check back soon!
+The tutorial content is also hosted as a [Jupyter book](https://jupyterbook.org/intro.html):
 
 [![Jupyter Book Badge](https://jupyterbook.org/badge.svg)](<https://pv-tutorials.github.io/2024_Modeling_Webinar/>)
 
@@ -39,8 +36,8 @@ steps:
    up to date functionality. To install them using conda and pip run:
 
    ```
-   conda create --name rdtools_demo python==3.10 notebook==6.48
-   conda activate oss_webinar
+   conda create --name modeling_demo python==3.10 notebook==6.48
+   conda activate modeling_demo
    pip install -r requirements.txt
    ```
 
