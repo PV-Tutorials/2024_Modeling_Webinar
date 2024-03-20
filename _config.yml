@@ -1,7 +1,7 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: OSS Webinar 2 Python Tutorial
+title: OSS Webinar 3 Python Tutorial
 author: Kevin Anderson, Matt Prilliman
 #logo: images/tutorial_banner.PNG
 # Patterns to skip when building the book. Can be glob-style (e.g. "*skip.ipynb")
