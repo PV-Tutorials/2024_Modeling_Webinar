@@ -1,0 +1,1241 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>SETO Webinar 3: pvlib python &#8212; OSS Webinar 2 Python Tutorial</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'pvlib-tutorial';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="OSS Webinar Python Tutorial" href="README.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="README.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">OSS Webinar 2 Python Tutorial</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="README.html">
+                    OSS Webinar Python Tutorial
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">SETO Webinar 3: pvlib python</a></li>
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/PV-Tutorials/2024_Analytics_Webinar/blob/main/pvlib-tutorial.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/PV-Tutorials/2024_Analytics_Webinar" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/PV-Tutorials/2024_Analytics_Webinar/issues/new?title=Issue%20on%20page%20%2Fpvlib-tutorial.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/pvlib-tutorial.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>SETO Webinar 3: pvlib python</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">SETO Webinar 3: pvlib python</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#use-case-1-system-modeler-benchmarking-temperature-models">Use case 1 (System modeler): Benchmarking temperature models</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#use-case-2-o-m-analyst-investigating-unexpected-data-features">Use case 2 (O&amp;M analyst): Investigating unexpected data features</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <p float="left">
+<img src="attachment:8e19d475-3f4e-4baf-ade0-38f2bc7a7d94.png" width="150" align="top"/>
+<img width="25"></img>
+<img src="attachment:8c33e1e9-5c7d-4d3d-8e64-6e86ccfe2fa2.png" width="250" align="top"/>
+</p>
+<section class="tex2jax_ignore mathjax_ignore" id="seto-webinar-3-pvlib-python">
+<h1>SETO Webinar 3: pvlib python<a class="headerlink" href="#seto-webinar-3-pvlib-python" title="Link to this heading">#</a></h1>
+<p>This notebook is for “Part 3: Modeling Tools” in SETO’s <a class="reference external" href="https://www.energy.gov/eere/solar/american-made-solar-data-bounty-prize">Solar Data Bounty Prize</a> webinar series.  It demonstrates some examples of using <a class="reference external" href="https://pvlib-python.readthedocs.io">pvlib python</a>, an open-source PV modeling software toolbox, with monitoring data recorded at a PV power plant.</p>
+<p>The power plant under study is <a class="reference external" href="https://openei.org/wiki/PVDAQ/Sites/SR_CO">OEDI System 9068</a>, a 4.7 MW utility-scale PV system in Colorado, United States.  System 9068 has two inverters powered by cadmium telluride (CdTe) PV modules mounted on single-axis trackers.</p>
+<p>pvlib is a very flexible and powerful tool, making it useful in many areas of solar energy modeling and analysis.  Engineers, programmers, data scientists, analysts, and researchers across the field of PV use pvlib on a daily basis in their work.  This notebook focuses in on two demo use cases:</p>
+<ol class="arabic simple">
+<li><p><strong>System modeler</strong>: Using system measurements to benchmark and compare the accuracy of different predictive models</p></li>
+<li><p><strong>O&amp;M analyst</strong>: Using system models to help explain and identify unexpected features seen in monitoring data</p></li>
+</ol>
+<p>To run this notebook yourself, you’ll need:</p>
+<ul class="simple">
+<li><p>A python environment with <code class="docutils literal notranslate"><span class="pre">pvlib</span></code>, <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>, and a jupyter notebook interface installed</p></li>
+<li><p>The following files downloaded from this system’s <a class="reference external" href="https://data.openei.org/s3_viewer?bucket=oedi-data-lake&amp;amp;prefix=pvdaq%2F2023-solar-data-prize%2F9068_OEDI%2F">OEDI data repository</a>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">9068_system_metadata.json</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">9068_irradiance_data.csv</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">9068_environment_data.csv</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">9068_ac_power_data.csv</span></code></p></li>
+</ul>
+</li>
+</ul>
+<hr class="docutils" />
+<p><strong>Other helpful links:</strong></p>
+<ul class="simple">
+<li><p>pvlib’s documentation: <a class="reference external" href="https://pvlib-python.readthedocs.io">https://pvlib-python.readthedocs.io</a></p></li>
+<li><p>System 9068 pvlib model: <a class="reference external" href="https://pvlib-python.readthedocs.io/en/stable/gallery/system-models/plot_oedi_9068.html">https://pvlib-python.readthedocs.io/en/stable/gallery/system-models/plot_oedi_9068.html</a></p></li>
+<li><p>other pvlib tutorials: <a class="reference external" href="https://pvsc-python-tutorials.github.io/">https://pvsc-python-tutorials.github.io/</a></p></li>
+<li><p>pvlib user discussion forum: <a class="reference external" href="https://groups.google.com/g/pvlib-python">https://groups.google.com/g/pvlib-python</a></p></li>
+<li><p>PV Performance Modeling Collaborative: <a class="reference external" href="https://pvpmc.sandia.gov">https://pvpmc.sandia.gov</a></p></li>
+<li><p>2023 Solar Data Bounty Prize: <a class="reference external" href="https://www.energy.gov/eere/solar/american-made-solar-data-bounty-prize">https://www.energy.gov/eere/solar/american-made-solar-data-bounty-prize</a></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pvlib</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">json</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This python environment has pvlib version:&quot;</span><span class="p">,</span> <span class="n">pvlib</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>This python environment has pvlib version: 0.10.3
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data/9068_system_metadata.json&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">metadata</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+<span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;Site&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;site_id&#39;: 7213,
+ &#39;public_name&#39;: &#39;s_SR_CO_1&#39;,
+ &#39;location&#39;: &#39;Kersey, CO&#39;,
+ &#39;us_region&#39;: &#39;West&#39;,
+ &#39;latitude&#39;: 40.3864,
+ &#39;longitude&#39;: -104.5512,
+ &#39;elevation(m)&#39;: 1407.0,
+ &#39;climate_type&#39;: &#39;Bsk&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lat</span> <span class="o">=</span> <span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;Site&#39;</span><span class="p">][</span><span class="s1">&#39;latitude&#39;</span><span class="p">]</span>
+<span class="n">lon</span> <span class="o">=</span> <span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;Site&#39;</span><span class="p">][</span><span class="s1">&#39;longitude&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_irr</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/9068_irradiance_data.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df_env</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/9068_environment_data.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df_inv</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/9068_ac_power_data.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="use-case-1-system-modeler-benchmarking-temperature-models">
+<h1>Use case 1 (System modeler): Benchmarking temperature models<a class="headerlink" href="#use-case-1-system-modeler-benchmarking-temperature-models" title="Link to this heading">#</a></h1>
+<p>The temperature of a PV module affects its efficiency and is a key quantity when modeling or analyzing system performance.  However, there are many models available for predicting module temperature (see this list of models implemented in pvlib: <a class="reference external" href="https://pvlib-python.readthedocs.io/en/stable/reference/pv_modeling/temperature.html">https://pvlib-python.readthedocs.io/en/stable/reference/pv_modeling/temperature.html</a>).  How can you tell which model is best for a particular system?</p>
+<p><strong>Objective</strong>: compare the accuracy of different temperature models by comparing their predictions with observed module temperature data.</p>
+<p>First, let’s see what temperature measurements are available to us in this dataset:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_env</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;weather_station_ambient_temperature_(c)_o_149727&#39;,
+       &#39;thermocouple_pad_1_back-of-module_temperature_1_(c)_o_149728&#39;,
+       &#39;thermocouple_pad_1_back-of-module_temperature_2_(c)_o_149729&#39;,
+       &#39;thermocouple_pad_2_back-of-module_temperature_1_(c)_o_149730&#39;,
+       &#39;thermocouple_pad_2_back-of-module_temperature_2_(c)_o_149731&#39;,
+       &#39;wind_sensor_max_wind_speed_(m/s)_o_149732&#39;,
+       &#39;wind_sensor_wind_direction_o_149733&#39;,
+       &#39;wind_sensor_wind_direction_fast_o_149735&#39;,
+       &#39;wind_sensor_wind_speed_(m/s)_o_149736&#39;,
+       &#39;wind_sensor_wind_speed_fast_(m/s)_o_149737&#39;,
+       &#39;wind_sensor_wind_speed_std._dev._(m/s)_o_149738&#39;,
+       &#39;inverter_module_1.1_temperature_ext_(c)_inv_149739&#39;,
+       &#39;inverter_module_1.1_temperature_r1_(c)_inv_149740&#39;,
+       &#39;inverter_module_1.1_temperature_r2_(c)_inv_149741&#39;,
+       &#39;inverter_module_1.1_temperature_r3_(c)_inv_149742&#39;,
+       &#39;inverter_module_1.1_temperature_s1_(c)_inv_149743&#39;,
+       &#39;inverter_module_1.1_temperature_s2_(c)_inv_149744&#39;,
+       &#39;inverter_module_1.1_temperature_s3_(c)_inv_149745&#39;,
+       &#39;inverter_module_1.1_temperature_t1_(c)_inv_149746&#39;,
+       &#39;inverter_module_1.1_temperature_t2_(c)_inv_149747&#39;,
+       &#39;inverter_module_1.1_temperature_t3_(c)_inv_149748&#39;,
+       &#39;inverter_module_1.2_temperature_ext_(c)_inv_149749&#39;,
+       &#39;inverter_module_1.2_temperature_r1_(c)_inv_149750&#39;,
+       &#39;inverter_module_1.2_temperature_r2_(c)_inv_149751&#39;,
+       &#39;inverter_module_1.2_temperature_r3_(c)_inv_149752&#39;,
+       &#39;inverter_module_1.2_temperature_s1_(c)_inv_149753&#39;,
+       &#39;inverter_module_1.2_temperature_s2_(c)_inv_149754&#39;,
+       &#39;inverter_module_1.2_temperature_s3_(c)_inv_149755&#39;,
+       &#39;inverter_module_1.2_temperature_t1_(c)_inv_149756&#39;,
+       &#39;inverter_module_1.2_temperature_t2_(c)_inv_149757&#39;,
+       &#39;inverter_module_1.2_temperature_t3_(c)_inv_149758&#39;,
+       &#39;inverter_module_1.3_temperature_ext_(c)_inv_149759&#39;,
+       &#39;inverter_module_1.3_temperature_r1_(c)_inv_149760&#39;,
+       &#39;inverter_module_1.3_temperature_r2_(c)_inv_149761&#39;,
+       &#39;inverter_module_1.3_temperature_r3_(c)_inv_149762&#39;,
+       &#39;inverter_module_1.3_temperature_s1_(c)_inv_149763&#39;,
+       &#39;inverter_module_1.3_temperature_s2_(c)_inv_149764&#39;,
+       &#39;inverter_module_1.3_temperature_s3_(c)_inv_149765&#39;,
+       &#39;inverter_module_1.3_temperature_t1_(c)_inv_149766&#39;,
+       &#39;inverter_module_1.3_temperature_t2_(c)_inv_149767&#39;,
+       &#39;inverter_module_1.3_temperature_t3_(c)_inv_149768&#39;,
+       &#39;inverter_module_1.4_temperature_ext_(c)_inv_149769&#39;,
+       &#39;inverter_module_1.4_temperature_r1_(c)_inv_149770&#39;,
+       &#39;inverter_module_1.4_temperature_r2_(c)_inv_149771&#39;,
+       &#39;inverter_module_1.4_temperature_r3_(c)_inv_149772&#39;,
+       &#39;inverter_module_1.4_temperature_s1_(c)_inv_149773&#39;,
+       &#39;inverter_module_1.4_temperature_s2_(c)_inv_149774&#39;,
+       &#39;inverter_module_1.4_temperature_s3_(c)_inv_149775&#39;,
+       &#39;inverter_module_1.4_temperature_t1_(c)_inv_149776&#39;,
+       &#39;inverter_module_1.4_temperature_t2_(c)_inv_149777&#39;,
+       &#39;inverter_module_1.4_temperature_t3_(c)_inv_149778&#39;,
+       &#39;inverter_module_2.1_temperature_ext_(c)_inv_149779&#39;,
+       &#39;inverter_module_2.1_temperature_r1_(c)_inv_149780&#39;,
+       &#39;inverter_module_2.1_temperature_r2_(c)_inv_149781&#39;,
+       &#39;inverter_module_2.1_temperature_r3_(c)_inv_149782&#39;,
+       &#39;inverter_module_2.1_temperature_s1_(c)_inv_149783&#39;,
+       &#39;inverter_module_2.1_temperature_s2_(c)_inv_149784&#39;,
+       &#39;inverter_module_2.1_temperature_s3_(c)_inv_149785&#39;,
+       &#39;inverter_module_2.1_temperature_t1_(c)_inv_149786&#39;,
+       &#39;inverter_module_2.1_temperature_t2_(c)_inv_149787&#39;,
+       &#39;inverter_module_2.1_temperature_t3_(c)_inv_149788&#39;,
+       &#39;inverter_module_2.2_temperature_ext_(c)_inv_149789&#39;,
+       &#39;inverter_module_2.2_temperature_r1_(c)_inv_149790&#39;,
+       &#39;inverter_module_2.2_temperature_r2_(c)_inv_149791&#39;,
+       &#39;inverter_module_2.2_temperature_r3_(c)_inv_149792&#39;,
+       &#39;inverter_module_2.2_temperature_s1_(c)_inv_149793&#39;,
+       &#39;inverter_module_2.2_temperature_s2_(c)_inv_149794&#39;,
+       &#39;inverter_module_2.2_temperature_s3_(c)_inv_149795&#39;,
+       &#39;inverter_module_2.2_temperature_t1_(c)_inv_149796&#39;,
+       &#39;inverter_module_2.2_temperature_t2_(c)_inv_149797&#39;,
+       &#39;inverter_module_2.2_temperature_t3_(c)_inv_149798&#39;,
+       &#39;inverter_module_2.3_temperature_ext_(c)_inv_149799&#39;,
+       &#39;inverter_module_2.3_temperature_r1_(c)_inv_149800&#39;,
+       &#39;inverter_module_2.3_temperature_r2_(c)_inv_149801&#39;,
+       &#39;inverter_module_2.3_temperature_r3_(c)_inv_149802&#39;,
+       &#39;inverter_module_2.3_temperature_s1_(c)_inv_149803&#39;,
+       &#39;inverter_module_2.3_temperature_s2_(c)_inv_149804&#39;,
+       &#39;inverter_module_2.3_temperature_s3_(c)_inv_149805&#39;,
+       &#39;inverter_module_2.3_temperature_t1_(c)_inv_149806&#39;,
+       &#39;inverter_module_2.3_temperature_t2_(c)_inv_149807&#39;,
+       &#39;inverter_module_2.3_temperature_t3_(c)_inv_149808&#39;,
+       &#39;inverter_module_2.4_temperature_ext_(c)_inv_149809&#39;,
+       &#39;inverter_module_2.4_temperature_r1_(c)_inv_149810&#39;,
+       &#39;inverter_module_2.4_temperature_r2_(c)_inv_149811&#39;,
+       &#39;inverter_module_2.4_temperature_r3_(c)_inv_149812&#39;,
+       &#39;inverter_module_2.4_temperature_s1_(c)_inv_149813&#39;,
+       &#39;inverter_module_2.4_temperature_s2_(c)_inv_149814&#39;,
+       &#39;inverter_module_2.4_temperature_s3_(c)_inv_149815&#39;,
+       &#39;inverter_module_2.4_temperature_t1_(c)_inv_149816&#39;,
+       &#39;inverter_module_2.4_temperature_t2_(c)_inv_149817&#39;,
+       &#39;inverter_module_2.4_temperature_t3_(c)_inv_149818&#39;,
+       &#39;inverter_1_max_igbt_temperature_(c)_inv_149819&#39;,
+       &#39;inverter_1_min_igbt_temperature_(c)_inv_149820&#39;,
+       &#39;inverter_1_derating_ambient_temperature_(c)_inv_149821&#39;,
+       &#39;inverter_1_temperature_int_(c)_inv_149822&#39;,
+       &#39;inverter_2__max_igbt_temperature_(c)_inv_149823&#39;,
+       &#39;inverter_2_min_igbt_temperature_(c)_inv_149824&#39;,
+       &#39;inverter_2_derating_ambient_temperature_(c)_inv_149825&#39;,
+       &#39;inverter_2_temperature_int_(c)_inv_149826&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>So one ambient temperature sensor (recording the temperature of the air) and four module temperature sensors.  Let’s take a look at a day of data from those sensors to see what we’re working with here:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+
+<span class="n">ambient_and_module_columns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;weather_station_ambient_temperature_(c)_o_149727&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;thermocouple_pad_1_back-of-module_temperature_1_(c)_o_149728&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;thermocouple_pad_1_back-of-module_temperature_2_(c)_o_149729&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;thermocouple_pad_2_back-of-module_temperature_1_(c)_o_149730&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;thermocouple_pad_2_back-of-module_temperature_2_(c)_o_149731&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="n">df_env</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2019-08-17&#39;</span><span class="p">,</span> <span class="n">ambient_and_module_columns</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Measured temperature [°C]&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="p">(</span><span class="mf">0.075</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.6</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x26c784abf10&gt;
+</pre></div>
+</div>
+<img alt="_images/104f949cbefa7b8ca145557fb42a920e6b2d13ad05d493316e4c4ae6cd456238.png" src="_images/104f949cbefa7b8ca145557fb42a920e6b2d13ad05d493316e4c4ae6cd456238.png" />
+</div>
+</div>
+<p>Qualitatively, these temperature data seem reasonable, although this particular day looks like it had fairly variable weather.</p>
+<p>Now, can we predict these module temperature values somehow?  Let’s pick one model from pvlib just to start:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># documentation also available at: https://pvlib-python.readthedocs.io/en/stable/reference/generated/pvlib.temperature.faiman.html</span>
+pvlib.temperature.faiman<span class="o">?</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Red">Signature:</span>
+pvlib<span class=" -Color -Color-Bold -Color-Bold-Yellow">.</span>temperature<span class=" -Color -Color-Bold -Color-Bold-Yellow">.</span>faiman<span class=" -Color -Color-Bold -Color-Bold-Yellow">(</span>
+    poa_global<span class=" -Color -Color-Bold -Color-Bold-Yellow">,</span>
+    temp_air<span class=" -Color -Color-Bold -Color-Bold-Yellow">,</span>
+    wind_speed<span class=" -Color -Color-Bold -Color-Bold-Yellow">=</span><span class=" -Color -Color-Bold -Color-Bold-Cyan">1.0</span><span class=" -Color -Color-Bold -Color-Bold-Yellow">,</span>
+    u0<span class=" -Color -Color-Bold -Color-Bold-Yellow">=</span><span class=" -Color -Color-Bold -Color-Bold-Cyan">25.0</span><span class=" -Color -Color-Bold -Color-Bold-Yellow">,</span>
+    u1<span class=" -Color -Color-Bold -Color-Bold-Yellow">=</span><span class=" -Color -Color-Bold -Color-Bold-Cyan">6.84</span><span class=" -Color -Color-Bold -Color-Bold-Yellow">,</span>
+<span class=" -Color -Color-Bold -Color-Bold-Yellow">)</span>
+<span class=" -Color -Color-Bold -Color-Bold-Red">Docstring:</span>
+Calculate cell or module temperature using the Faiman model.
+
+The Faiman model uses an empirical heat loss factor model [1]_ and is
+adopted in the IEC 61853 standards [2]_ and [3]_.
+
+Usage of this model in the IEC 61853 standard does not distinguish
+between cell and module temperature.
+
+Parameters
+----------
+poa_global : numeric
+    Total incident irradiance [W/m^2].
+
+temp_air : numeric
+    Ambient dry bulb temperature [C].
+
+wind_speed : numeric, default 1.0
+    Wind speed in m/s measured at the same height for which the wind loss
+    factor was determined.  The default value 1.0 m/s is the wind
+    speed at module height used to determine NOCT. [m/s]
+
+u0 : numeric, default 25.0
+    Combined heat loss factor coefficient. The default value is one
+    determined by Faiman for 7 silicon modules
+    in the Negev desert on an open rack at 30.9° tilt.
+    :math:`\left[\frac{\text{W}/{\text{m}^2}}{\text{C}}\right]`
+
+u1 : numeric, default 6.84
+    Combined heat loss factor influenced by wind. The default value is one
+    determined by Faiman for 7 silicon modules
+    in the Negev desert on an open rack at 30.9° tilt.
+    :math:`\left[ \frac{\text{W}/\text{m}^2}{\text{C}\ \left( \text{m/s} \right)} \right]`
+
+Returns
+-------
+numeric, values in degrees Celsius
+
+Notes
+-----
+All arguments may be scalars or vectors. If multiple arguments
+are vectors they must be the same length.
+
+References
+----------
+.. [1] Faiman, D. (2008). &quot;Assessing the outdoor operating temperature of
+   photovoltaic modules.&quot; Progress in Photovoltaics 16(4): 307-315.
+   :doi:`10.1002/pip.813`
+
+.. [2] &quot;IEC 61853-2 Photovoltaic (PV) module performance testing and energy
+   rating - Part 2: Spectral responsivity, incidence angle and module
+   operating temperature measurements&quot;. IEC, Geneva, 2018.
+
+.. [3] &quot;IEC 61853-3 Photovoltaic (PV) module performance testing and energy
+   rating - Part 3: Energy rating of PV modules&quot;. IEC, Geneva, 2018.
+
+See also
+--------
+pvlib.temperature.faiman_rad
+<span class=" -Color -Color-Bold -Color-Bold-Red">File:</span>      c:\users\ksande\software\miniconda3\envs\dev\lib\site-packages\pvlib\temperature.py
+<span class=" -Color -Color-Bold -Color-Bold-Red">Type:</span>      function
+</pre></div>
+</div>
+</div>
+</div>
+<p>So we need ambient temperature, POA irradiance, and wind speed.  Let’s extract those from the dataframes we loaded earlier:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tamb</span> <span class="o">=</span> <span class="n">df_env</span><span class="p">[</span><span class="s1">&#39;weather_station_ambient_temperature_(c)_o_149727&#39;</span><span class="p">]</span>
+<span class="n">wind_speed</span> <span class="o">=</span> <span class="n">df_env</span><span class="p">[</span><span class="s1">&#39;wind_sensor_wind_speed_(m/s)_o_149736&#39;</span><span class="p">]</span>
+<span class="n">poa</span> <span class="o">=</span> <span class="n">df_irr</span><span class="p">[</span><span class="s1">&#39;pyranometer_(class_a)_pad_2_poa_irradiance_temp_compensated_(w/m2)_o_149726&#39;</span><span class="p">]</span>
+
+<span class="c1"># leaving the thermal coefficients at default values</span>
+<span class="n">tmod_faiman</span> <span class="o">=</span> <span class="n">pvlib</span><span class="o">.</span><span class="n">temperature</span><span class="o">.</span><span class="n">faiman</span><span class="p">(</span><span class="n">poa</span><span class="p">,</span> <span class="n">tamb</span><span class="p">,</span> <span class="n">wind_speed</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>That was easy!  Let’s see how the modeled module temperature values compare with the measurements:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+
+<span class="n">df_env</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2019-08-17&#39;</span><span class="p">,</span> <span class="n">ambient_and_module_columns</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">)</span>
+<span class="n">tmod_faiman</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2019-08-17&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Model: Faiman&#39;</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Temperature [°C]&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="p">(</span><span class="mf">0.075</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.7</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x26c00370b80&gt;
+</pre></div>
+</div>
+<img alt="_images/bc79a4a42a4d168d34d13389ac6b8e3fe1e9e58a0a07c8c4f773f581952b4d3c.png" src="_images/bc79a4a42a4d168d34d13389ac6b8e3fe1e9e58a0a07c8c4f773f581952b4d3c.png" />
+</div>
+</div>
+<p>The general trends are correct, but it looks like the model isn’t <em>quite</em> right; the modeled trace is “spikier” and seem to be changing too early.  Put another way, the observed temperature values tend to lag behind and have some inertia compared with the model.</p>
+<p>This is a well-known effect.  The Faiman model is what’s called a “steady-state” model in that it implicitly assumes that the weather inputs aren’t changing very quickly over time.  On a highly variable day like this one, the problems with this assumption are clearly demonstrated.</p>
+<p>So how can we fix this?  Let’s use the Prilliman model to apply thermal transience to the model:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># check online docs page for parameter descriptions, or use the &quot;?&quot; feature like before</span>
+<span class="n">tmod_faiman_prilliman</span> <span class="o">=</span> <span class="n">pvlib</span><span class="o">.</span><span class="n">temperature</span><span class="o">.</span><span class="n">prilliman</span><span class="p">(</span><span class="n">tmod_faiman</span><span class="p">,</span> <span class="n">wind_speed</span><span class="p">,</span> <span class="n">unit_mass</span><span class="o">=</span><span class="mf">16.6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\ksande\software\miniconda3\envs\dev\lib\site-packages\pvlib\temperature.py:1088: RuntimeWarning: invalid value encountered in divide
+  smoothed = numerator / denominator
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now let’s compare with measurements again:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+
+<span class="n">df_env</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2019-08-17&#39;</span><span class="p">,</span> <span class="n">ambient_and_module_columns</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">)</span>
+<span class="n">tmod_faiman_prilliman</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2019-08-17&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Model: Faiman + Prilliman&#39;</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Temperature [°C]&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="p">(</span><span class="mf">0.075</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.7</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x26c25ab6c80&gt;
+</pre></div>
+</div>
+<img alt="_images/5ad89f16d1e85b313f71320a46c42267027dee932d0288adc34b065e0af4b062.png" src="_images/5ad89f16d1e85b313f71320a46c42267027dee932d0288adc34b065e0af4b062.png" />
+</div>
+</div>
+<p>A significant improvement!  The model is still not perfect, but for much of the day it falls within the spread of the measurements themselves.</p>
+<p>Now, let’s try out some other temperature models to see how they compare.  With pvlib, it’s easy to bring several models together:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tmod_pvsyst</span> <span class="o">=</span> <span class="n">pvlib</span><span class="o">.</span><span class="n">temperature</span><span class="o">.</span><span class="n">pvsyst_cell</span><span class="p">(</span><span class="n">poa</span><span class="p">,</span> <span class="n">tamb</span><span class="p">,</span> <span class="n">wind_speed</span><span class="p">)</span>
+
+<span class="n">sapm_params</span> <span class="o">=</span> <span class="n">pvlib</span><span class="o">.</span><span class="n">temperature</span><span class="o">.</span><span class="n">TEMPERATURE_MODEL_PARAMETERS</span><span class="p">[</span><span class="s1">&#39;sapm&#39;</span><span class="p">][</span><span class="s1">&#39;open_rack_glass_polymer&#39;</span><span class="p">]</span>
+<span class="n">tmod_sapm</span> <span class="o">=</span> <span class="n">pvlib</span><span class="o">.</span><span class="n">temperature</span><span class="o">.</span><span class="n">sapm_cell</span><span class="p">(</span><span class="n">poa</span><span class="p">,</span> <span class="n">tamb</span><span class="p">,</span> <span class="n">wind_speed</span><span class="p">,</span> <span class="o">**</span><span class="n">sapm_params</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># bundle all the modeled values into a dataframe for convenience</span>
+<span class="n">tmod_modeled</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;Faiman&#39;</span><span class="p">:</span> <span class="n">tmod_faiman</span><span class="p">,</span>
+    <span class="s1">&#39;SAPM&#39;</span><span class="p">:</span> <span class="n">tmod_sapm</span><span class="p">,</span>
+    <span class="s1">&#39;PVsyst&#39;</span><span class="p">:</span> <span class="n">tmod_pvsyst</span><span class="p">,</span>
+    <span class="s1">&#39;Faiman + Prilliman&#39;</span><span class="p">:</span> <span class="n">tmod_faiman_prilliman</span><span class="p">,</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now instead of just making plots, let’s calculate some error statistics.  To do that, let’s get a single basis of comparison to simplify things.  One way to do that is to take the median of the four temperature sensor readings:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tmod_observed</span> <span class="o">=</span> <span class="n">df_env</span><span class="p">[[</span>
+    <span class="s1">&#39;thermocouple_pad_1_back-of-module_temperature_1_(c)_o_149728&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;thermocouple_pad_1_back-of-module_temperature_2_(c)_o_149729&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;thermocouple_pad_2_back-of-module_temperature_1_(c)_o_149730&#39;</span>
+<span class="p">]]</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># compare temperature values using the entire year of 2018</span>
+<span class="n">date_range</span> <span class="o">=</span> <span class="s1">&#39;2018&#39;</span>
+
+<span class="c1"># For this comparison, let&#39;s only consider times with irradiance above zero.</span>
+<span class="c1"># In a real model comparison, more careful filtering should be done</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">poa</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">date_range</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finally, let’s loop through our models, calculate error statistics, and visualize the comparison:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">LogNorm</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="n">ax</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">tmod_modeled</span><span class="p">,</span> <span class="n">axes</span><span class="o">.</span><span class="n">flatten</span><span class="p">()):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">tmod_observed</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">date_range</span><span class="p">]</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">tmod_modeled</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">date_range</span><span class="p">,</span> <span class="n">col</span><span class="p">]</span>
+
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
+    <span class="n">filt</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">notnull</span><span class="p">()</span> <span class="o">&amp;</span> <span class="n">y</span><span class="o">.</span><span class="n">notnull</span><span class="p">()</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">filt</span><span class="p">]</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">filt</span><span class="p">]</span>
+
+    <span class="c1"># calculate deviation statistics</span>
+    <span class="n">rmse</span> <span class="o">=</span> <span class="p">((</span><span class="n">x</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">**</span><span class="mf">0.5</span>
+    <span class="n">r2</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">mbe</span> <span class="o">=</span> <span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+    <span class="c1"># make density scatter plot for this model</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">hist2d</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="n">cmin</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">LogNorm</span><span class="p">())</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axline</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">slope</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$T_</span><span class="si">{mod}</span><span class="s1">$ (observed) [°C]&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">col</span><span class="p">)</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">-</span><span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;MBE: </span><span class="si">{</span><span class="n">mbe</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">°&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">-</span><span class="mi">25</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;RMSE: </span><span class="si">{</span><span class="n">rmse</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">°&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">-</span><span class="mi">25</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;r$^2$: </span><span class="si">{</span><span class="n">r2</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$T_{{mod}}$ (modeled) [°C]&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/aba3cee6cae339660bba22d043e85ed0644248b223b6d6477e1fca3c87508fd5.png" src="_images/aba3cee6cae339660bba22d043e85ed0644248b223b6d6477e1fca3c87508fd5.png" />
+</div>
+</div>
+<p>What have we achieved?</p>
+<ul class="simple">
+<li><p>use pvlib to use some monitoring quantities to predict another</p></li>
+<li><p>compare multiple models to see which one best recreates this system’s measured values</p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="use-case-2-o-m-analyst-investigating-unexpected-data-features">
+<h1>Use case 2 (O&amp;M analyst): Investigating unexpected data features<a class="headerlink" href="#use-case-2-o-m-analyst-investigating-unexpected-data-features" title="Link to this heading">#</a></h1>
+<p>Performance analysts routinely inspect and analyze monitoring data to calculate performance metrics or investigate why a system may be underperforming.  However, system idiosyncrasies and sensor issues can create data features which are difficult to interpret.  In these tricky cases, pvlib can be a very useful tool to lend context and help understand what the data is telling you.</p>
+<p><strong>Objective:</strong> use pvlib to assist in explaining unexpected features in monitoring data.</p>
+<p>A very useful visualization for performance analysis is a scatter plot of system output versus POA irradiance, so let’s start there.  For this example we’ll look at data for the month of January, 2018.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">date</span> <span class="o">=</span> <span class="s1">&#39;2018-01&#39;</span>
+
+<span class="n">poa</span> <span class="o">=</span> <span class="n">df_irr</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">date</span><span class="p">,</span> <span class="s1">&#39;pyranometer_(class_a)_pad_2_poa_irradiance_temp_compensated_(w/m2)_o_149726&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tz_localize</span><span class="p">(</span><span class="s1">&#39;US/Mountain&#39;</span><span class="p">)</span>
+<span class="n">power</span> <span class="o">=</span> <span class="n">df_inv</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">date</span><span class="p">,</span> <span class="s1">&#39;inverter_1_ac_power_(kw)_inv_150143&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tz_localize</span><span class="p">(</span><span class="s1">&#39;US/Mountain&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">poa</span><span class="p">,</span> <span class="n">power</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Inverter AC Power [kW]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;POA Irradiance [W/m$^2$]&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;POA Irradiance [W/m$^2$]&#39;)
+</pre></div>
+</div>
+<img alt="_images/46f526aca6c709fce78aac0ab482cf19f92e6a4ee6b3d010ed315f57c61d48c4.png" src="_images/46f526aca6c709fce78aac0ab482cf19f92e6a4ee6b3d010ed315f57c61d48c4.png" />
+</div>
+</div>
+<p>Theoretically, system output should follow a mostly linear trend with POA irradiance, but here we see some strange features:</p>
+<ul class="simple">
+<li><p>a group of “impossible” points above the main trend at low irradiance where the inverter is seeming to produce far more power than would be expected for the irradiance level</p></li>
+<li><p>a cloud of points below the main trend where the inverter is seeming to produce less power than expected for the irradiance level</p></li>
+</ul>
+<p>Of course there is also a group of points at nonzero irradiance but zero power; presumably these are from an inverter outage.</p>
+<p>Let’s take a look at the data in time series view to see if that tells us anything:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">date</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="s1">&#39;2018-01-04 07:00&#39;</span><span class="p">,</span> <span class="s1">&#39;2018-01-04 17:00&#39;</span><span class="p">)</span>
+<span class="n">poa_day</span> <span class="o">=</span> <span class="n">poa</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">date</span><span class="p">]</span>
+<span class="n">power_day</span> <span class="o">=</span> <span class="n">df_inv</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">date</span><span class="p">,</span> <span class="s1">&#39;inverter_1_ac_power_(kw)_inv_150143&#39;</span><span class="p">]</span>
+
+<span class="n">poa_day</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="n">poa_day</span><span class="o">.</span><span class="n">max</span><span class="p">())</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;POA Irradiance&#39;</span><span class="p">)</span>
+<span class="n">power_day</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="n">power_day</span><span class="o">.</span><span class="n">max</span><span class="p">())</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Inverter 1 Power&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x26c78722410&gt;
+</pre></div>
+</div>
+<img alt="_images/f6b84761f434b554c13a42fc1427199fccaacc88c304e66478809955112e5f79.png" src="_images/f6b84761f434b554c13a42fc1427199fccaacc88c304e66478809955112e5f79.png" />
+</div>
+</div>
+<p>Now we see a little more: irradiance seems too high on the shoulders of the day and suddenly too low at the edges.  The sudden drop-off suggests there might be some kind of sensor shading going on.  It could be external to the array, but notice that the shading seems roughly symmetrical in morning and evening…</p>
+<p>Well, we know that this is a tracking CdTe system, which means it doesn’t backtrack in the morning and evening.  Could this be somehow caused by row-to-row shading?  Let’s use pvlib to calculate some helpful values:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># first, solar positions and hypothetical tracker rotation angles.</span>
+<span class="c1"># Could use measured tracker positinos instead, but then would have to make sure the data aren&#39;t messed up.</span>
+
+<span class="n">sp</span> <span class="o">=</span> <span class="n">pvlib</span><span class="o">.</span><span class="n">solarposition</span><span class="o">.</span><span class="n">get_solarposition</span><span class="p">(</span><span class="n">poa</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">)</span>
+<span class="n">tr</span> <span class="o">=</span> <span class="n">pvlib</span><span class="o">.</span><span class="n">tracking</span><span class="o">.</span><span class="n">singleaxis</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">zenith</span><span class="p">,</span> <span class="n">sp</span><span class="o">.</span><span class="n">azimuth</span><span class="p">,</span> <span class="n">axis_azimuth</span><span class="o">=</span><span class="mi">180</span><span class="p">,</span> <span class="n">backtrack</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">max_angle</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># now, let&#39;s use pvlib to model row-to-row shading.  this function calculates a &quot;shaded fraction&quot;,</span>
+<span class="c1"># i.e. the fraction of a PV row&#39;s module area that is shaded by the row in front.</span>
+<span class="c1"># note: we are using an &quot;internal&quot; pvlib function here, since a user-facing function</span>
+<span class="c1"># for calculating shaded fraction hasn&#39;t been added yet.  We will include one in pvlib soon.</span>
+
+<span class="n">gcr</span> <span class="o">=</span> <span class="mf">0.347</span>  <span class="c1"># estimated from satellite imagery and module datasheet info</span>
+<span class="n">shaded_fraction</span> <span class="o">=</span> <span class="n">pvlib</span><span class="o">.</span><span class="n">bifacial</span><span class="o">.</span><span class="n">infinite_sheds</span><span class="o">.</span><span class="n">_shaded_fraction</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">zenith</span><span class="p">,</span> <span class="n">sp</span><span class="o">.</span><span class="n">azimuth</span><span class="p">,</span> <span class="n">tr</span><span class="o">.</span><span class="n">surface_tilt</span><span class="p">,</span> <span class="n">tr</span><span class="o">.</span><span class="n">surface_azimuth</span><span class="p">,</span> <span class="n">gcr</span><span class="p">)</span>
+<span class="n">shaded_fraction</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">shaded_fraction</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">poa</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>With our calculated shaded fraction in hand, let’s see what we can learn by comparing it with the pyranometer readings:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">poa_day</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="n">poa_day</span><span class="o">.</span><span class="n">max</span><span class="p">())</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;POA Irradiance&#39;</span><span class="p">)</span>
+<span class="c1">#power_day.divide(power_day.max()).plot(label=&#39;Inverter 1 Power&#39;)</span>
+<span class="n">shaded_fraction</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">date</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;modeled shaded fraction&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x26c00fe3b50&gt;
+</pre></div>
+</div>
+<img alt="_images/9b8126837f281bff540f236337d2b7333a120cb6d631e28332eb3230a31b5291.png" src="_images/9b8126837f281bff540f236337d2b7333a120cb6d631e28332eb3230a31b5291.png" />
+</div>
+</div>
+<p>It looks like the irradiance jump occurs right when the shaded fraction is 0.5!  Let’s verify that:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sf_less_than_half</span> <span class="o">=</span> <span class="n">shaded_fraction</span> <span class="o">&lt;</span> <span class="mf">0.5</span>
+<span class="n">sf_greater_than_half</span> <span class="o">=</span> <span class="n">shaded_fraction</span> <span class="o">&gt;</span> <span class="mf">0.5</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">poa_day</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="n">poa_day</span><span class="o">.</span><span class="n">max</span><span class="p">())</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;POA Irradiance&#39;</span><span class="p">)</span>
+<span class="n">shaded_fraction</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">date</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;modeled shaded fraction&#39;</span><span class="p">)</span>
+
+<span class="n">aux</span> <span class="o">=</span> <span class="n">poa_day</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="n">poa_day</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="n">aux</span><span class="p">[</span><span class="n">sf_less_than_half</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">date</span><span class="p">]]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;pvlib model: sensor unshaded&#39;</span><span class="p">)</span>
+<span class="n">aux</span><span class="p">[</span><span class="n">sf_greater_than_half</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">date</span><span class="p">]]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;pvlib model: sensor shaded&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x26c01036f50&gt;
+</pre></div>
+</div>
+<img alt="_images/bfaef50d8b7881235f9eee5e8aaae235ed82b0b7f94db36eb3943a05123674cd.png" src="_images/bfaef50d8b7881235f9eee5e8aaae235ed82b0b7f94db36eb3943a05123674cd.png" />
+</div>
+</div>
+<p>From this, we can make the guess that this pyranometer is mounted on the tracker torque tube, so that when row-to-row shading reaches halfway up the tracker height, it starts to cover the pyranometer.</p>
+<p>With that knowledge in hand, let’s use our modeled shaded fraction to label values in the overall dataset:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">date</span> <span class="o">=</span> <span class="s1">&#39;2018-01&#39;</span>
+
+<span class="n">filt_no_shade</span> <span class="o">=</span> <span class="n">shaded_fraction</span> <span class="o">==</span> <span class="mi">0</span>
+<span class="n">filt_array_shade</span> <span class="o">=</span> <span class="n">shaded_fraction</span> <span class="o">&gt;</span> <span class="mi">0</span>
+<span class="n">filt_sensor_shade</span> <span class="o">=</span> <span class="n">shaded_fraction</span> <span class="o">&gt;</span> <span class="mf">0.5</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">poa</span><span class="p">[</span><span class="n">filt_no_shade</span><span class="p">],</span> <span class="n">power</span><span class="p">[</span><span class="n">filt_no_shade</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;No shading&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">poa</span><span class="p">[</span><span class="n">filt_array_shade</span><span class="p">],</span> <span class="n">power</span><span class="p">[</span><span class="n">filt_array_shade</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Array is shaded&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">poa</span><span class="p">[</span><span class="n">filt_sensor_shade</span><span class="p">],</span> <span class="n">power</span><span class="p">[</span><span class="n">filt_sensor_shade</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Sensor is shaded&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Inverter AC Power [kW]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Measured POA Irradiance [W/m$^2$]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x26c01037dc0&gt;
+</pre></div>
+</div>
+<img alt="_images/3a4a7c8baf621d6103041d64e48ab4d5600984153ff8e1f20322642f66efded0.png" src="_images/3a4a7c8baf621d6103041d64e48ab4d5600984153ff8e1f20322642f66efded0.png" />
+</div>
+</div>
+<p>Neat!  The poor-performing points correspond to times when some modules are shaded, but the pyranometer is not.  The “high-performing” cluster corresponds to times when the pyranometer is shaded too, and thus isn’t a reliable source of the actual plane-of-array irradiance.</p>
+<p>Note that we can use the modeled shaded fraction values to filter the dataset to only include unshaded times (useful for capacity tests, calculating performance ratios, etc):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">date</span> <span class="o">=</span> <span class="s1">&#39;2018-01&#39;</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">poa</span><span class="p">[</span><span class="n">filt_no_shade</span><span class="p">],</span> <span class="n">power</span><span class="p">[</span><span class="n">filt_no_shade</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Inverter AC Power [kW]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Measured POA Irradiance [W/m$^2$]&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;Measured POA Irradiance [W/m$^2$]&#39;)
+</pre></div>
+</div>
+<img alt="_images/d90c4eb0ad535c01a885ba8b8715200f5a0b8f995423108ccbcd8588a1b80161.png" src="_images/d90c4eb0ad535c01a885ba8b8715200f5a0b8f995423108ccbcd8588a1b80161.png" />
+</div>
+</div>
+<p>Finally, just for completeness, let’s make one combined figure that tells the whole story:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">poa</span><span class="p">,</span> <span class="n">power</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;All measurements&#39;</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">poa</span><span class="p">[</span><span class="n">filt_array_shade</span><span class="p">],</span> <span class="n">power</span><span class="p">[</span><span class="n">filt_array_shade</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;tab:orange&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Self-shading&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">poa</span><span class="p">[</span><span class="n">filt_sensor_shade</span><span class="p">],</span> <span class="n">power</span><span class="p">[</span><span class="n">filt_sensor_shade</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;tab:purple&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Self-shading + sensor shading&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">poa</span><span class="p">[</span><span class="n">filt_no_shade</span><span class="p">],</span> <span class="n">power</span><span class="p">[</span><span class="n">filt_no_shade</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;tab:green&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;No shading&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Labeled by expected shading model&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">poa</span><span class="p">[</span><span class="n">filt_no_shade</span><span class="p">],</span> <span class="n">power</span><span class="p">[</span><span class="n">filt_no_shade</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Filtered to un-shaded times&#39;</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Inverter AC Power [kW]&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">axes</span><span class="p">:</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Measured POA Irradiance [W/m$^2$]&#39;</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;System 9068: </span><span class="si">{</span><span class="n">power</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="se">\n</span><span class="s1">Month: </span><span class="si">{</span><span class="n">date</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/59f4017994d6d1f79369da42d8ff9ab1759642b5ac058cb89c63edcbc2507764.png" src="_images/59f4017994d6d1f79369da42d8ff9ab1759642b5ac058cb89c63edcbc2507764.png" />
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "PV-Tutorials/2024_Analytics_Webinar",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="README.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">OSS Webinar Python Tutorial</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">SETO Webinar 3: pvlib python</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#use-case-1-system-modeler-benchmarking-temperature-models">Use case 1 (System modeler): Benchmarking temperature models</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#use-case-2-o-m-analyst-investigating-unexpected-data-features">Use case 2 (O&amp;M analyst): Investigating unexpected data features</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kevin Anderson, Matt Prilliman
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
