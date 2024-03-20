@@ -25,7 +25,7 @@ steps:
 1. Clone the repository:
 
    ```
-   git clone https://github.com/PV-Tutorials/2024_Analytics_Webinar.git
+   git clone https://github.com/PV-Tutorials/2024_Modeling_Webinar.git
    ```
 
 1. Create the environment and install the requirements. The repository includes
@@ -47,7 +47,7 @@ steps:
    jupyter notebook
    ```
 
-1. Use the file explorer in Jupyter lab to browse to `2024_Analytics_Webinar`
+1. Use the file explorer in Jupyter lab to browse to `2024_Modeling_Webinar`
    and start the first Tutorial.
 
 
