@@ -705,7 +705,7 @@ pvlib.temperature.faiman_rad
 </div>
 </div>
 </div>
-<p>So we need ambient temperature, POA irradiance, and wind speed.  Let’s extract those from the dataframes we loaded earlier:</p>
+<p>So we need ambient temperature, plane-of-array (POA) irradiance, and wind speed.  Let’s extract those from the dataframes we loaded earlier:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tamb</span> <span class="o">=</span> <span class="n">df_env</span><span class="p">[</span><span class="s1">&#39;weather_station_ambient_temperature_(c)_o_149727&#39;</span><span class="p">]</span>
@@ -867,8 +867,8 @@ pvlib.temperature.faiman_rad
 </div>
 <p>What have we achieved?</p>
 <ul class="simple">
-<li><p>use pvlib to use some monitoring quantities to predict another</p></li>
-<li><p>compare multiple models to see which one best recreates this system’s measured values</p></li>
+<li><p>Used pvlib to predict some system measurements based on others</p></li>
+<li><p>Compared multiple models to see which one best recreates this system’s measured values</p></li>
 </ul>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="use-case-2-o-m-analyst-investigating-unexpected-data-features">
@@ -1071,6 +1071,17 @@ pvlib.temperature.faiman_rad
 <img alt="_images/59f4017994d6d1f79369da42d8ff9ab1759642b5ac058cb89c63edcbc2507764.png" src="_images/59f4017994d6d1f79369da42d8ff9ab1759642b5ac058cb89c63edcbc2507764.png" />
 </div>
 </div>
+<p>What have we achieved?</p>
+<ul class="simple">
+<li><p>Used pvlib to model the system and calculate quantities that lend context and help explain dataset features</p></li>
+<li><p>Used the modeled quantities to filter the dataset and prepare it for further performance analysis</p></li>
+</ul>
+<p>What next?  To get a truly “clean” dataset, it would be necessary to do additional filtering/analysis regarding the supposed inverter outage.  This tutorial will not cover that, but here are a few ideas for you to explore on your own:</p>
+<ul class="simple">
+<li><p>Use the modeled solar position from pvlib to filter the dataset down to only “daytime” periods (e.g. sun elevation above 5 degrees).</p></li>
+<li><p>Estimate lost production by retrieving external weather data using <code class="docutils literal notranslate"><span class="pre">pvlib.iotools</span></code> and using it to model the expected energy for the outage period.</p></li>
+<li><p>Does the sensor shading happen every day, or only some times of year?  Use the modeled solar azimuth angles to understand when and how this irradiance sensor is shaded.</p></li>
+</ul>
 </section>
 
     <script type="text/x-thebe-config">
