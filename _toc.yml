@@ -4,5 +4,5 @@
 format: jb-book
 root: README
 chapters:
-#- file: pysam-tutorial
+- file: PySAM_DataPrize_Tutorial
 - file: pvlib-tutorial
