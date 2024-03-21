@@ -7,6 +7,8 @@ Welcome! The goal of this tutorial is to introduce attendees to the following pa
 These tutorials are made with [Jupyter](https://jupyter.org), which is a
 browser based interactive Python notebook.
 
+The tutorial is available here: https://pv-tutorials.github.io/2024_Modeling_Webinar
+
 ### Jupyter Books
 
 The tutorial content is also hosted as a [Jupyter book](https://jupyterbook.org/intro.html):
