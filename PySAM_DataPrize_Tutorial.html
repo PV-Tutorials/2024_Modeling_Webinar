@@ -1,0 +1,1130 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>PySAM DOE Data Prize Webinar &#8212; OSS Webinar 3 Python Tutorial</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'PySAM_DataPrize_Tutorial';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="README.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">OSS Webinar 3 Python Tutorial</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="README.html">
+                    OSS Webinar Python Tutorial
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="pvlib-tutorial.html">pvlib python tutorial</a></li>
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/PV-Tutorials/2024_Modeling_Webinar" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/PV-Tutorials/2024_Modeling_Webinar/issues/new?title=Issue%20on%20page%20%2FPySAM_DataPrize_Tutorial.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/PySAM_DataPrize_Tutorial.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>PySAM DOE Data Prize Webinar</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modeling-capabilities-of-pysam-and-pvlib-with-use-cases-for-doe-data-prize-datasets">Modeling capabilities of PySAM and pvlib with use cases for DOE Data Prize datasets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-pysam-case">Setting up PySAM case</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-pysam-modules">1. Import PySAM modules</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-in-weather-data">2. Load in weather data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-pv-system-design">3. Set up PV system design</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-model-timestep-by-timestep">4. Run model timestep-by-timestep</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compare-results-to-measured-plant-data">5. Compare results to measured plant data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extra-model-features-for-monitoring-etc">6. Extra model features for monitoring, etc.</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#weather-data">Weather Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#option-1-read-from-file">Option 1. Read from file</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#option-2-read-from-dictionary">Option 2: Read from dictionary</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#doe-data-prize-datasets">DOE Data Prize Datasets</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pv-system-design">PV System Design</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#option-1-recommended-set-up-pv-system-design-in-sam-gui">Option 1 (recommended): set up PV system design in SAM GUI</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-model">Run model</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compare-to-measured-data">Compare to Measured Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#financial-model">Financial Model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#non-annual-simulations">Non-annual Simulations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#custom-tracker-rotation-angles">Custom Tracker Rotation Angles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#custom-module-temperatures">Custom module temperatures</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="pysam-doe-data-prize-webinar">
+<h1>PySAM DOE Data Prize Webinar<a class="headerlink" href="#pysam-doe-data-prize-webinar" title="Link to this heading">#</a></h1>
+<section id="modeling-capabilities-of-pysam-and-pvlib-with-use-cases-for-doe-data-prize-datasets">
+<h2>Modeling capabilities of PySAM and pvlib with use cases for DOE Data Prize datasets<a class="headerlink" href="#modeling-capabilities-of-pysam-and-pvlib-with-use-cases-for-doe-data-prize-datasets" title="Link to this heading">#</a></h2>
+<p><img alt="VennDiagram.png" src="_images/attachment%3AVennDiagram.png" /></p>
+</section>
+<section id="setting-up-pysam-case">
+<h2>Setting up PySAM case<a class="headerlink" href="#setting-up-pysam-case" title="Link to this heading">#</a></h2>
+<section id="import-pysam-modules">
+<h3>1. Import PySAM modules<a class="headerlink" href="#import-pysam-modules" title="Link to this heading">#</a></h3>
+</section>
+<section id="load-in-weather-data">
+<h3>2. Load in weather data<a class="headerlink" href="#load-in-weather-data" title="Link to this heading">#</a></h3>
+</section>
+<section id="set-up-pv-system-design">
+<h3>3. Set up PV system design<a class="headerlink" href="#set-up-pv-system-design" title="Link to this heading">#</a></h3>
+</section>
+<section id="run-model-timestep-by-timestep">
+<h3>4. Run model timestep-by-timestep<a class="headerlink" href="#run-model-timestep-by-timestep" title="Link to this heading">#</a></h3>
+</section>
+<section id="compare-results-to-measured-plant-data">
+<h3>5. Compare results to measured plant data<a class="headerlink" href="#compare-results-to-measured-plant-data" title="Link to this heading">#</a></h3>
+</section>
+<section id="extra-model-features-for-monitoring-etc">
+<h3>6. Extra model features for monitoring, etc.<a class="headerlink" href="#extra-model-features-for-monitoring-etc" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Setting up PySAM</span>
+<span class="c1">#bring in PV module</span>
+<span class="kn">import</span> <span class="nn">PySAM</span> <span class="k">as</span> <span class="nn">pysam</span>
+<span class="kn">import</span> <span class="nn">PySAM.Pvsamv1</span> <span class="k">as</span> <span class="nn">pv</span>
+<span class="c1">#bring in LCOE calculator for example</span>
+<span class="kn">import</span> <span class="nn">PySAM.Lcoefcr</span> <span class="k">as</span> <span class="nn">lcoe</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> <span class="c1">#Data processing</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">import</span> <span class="nn">PySAM.ResourceTools</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="weather-data">
+<h2>Weather Data<a class="headerlink" href="#weather-data" title="Link to this heading">#</a></h2>
+<section id="option-1-read-from-file">
+<h3>Option 1. Read from file<a class="headerlink" href="#option-1-read-from-file" title="Link to this heading">#</a></h3>
+<p>-Use SAM weather file formats such as that downloaded from NSRDB
+<img alt="sam_weather_file_example.png" src="_images/attachment%3Asam_weather_file_example.png" /></p>
+</section>
+<section id="option-2-read-from-dictionary">
+<h3>Option 2: Read from dictionary<a class="headerlink" href="#option-2-read-from-dictionary" title="Link to this heading">#</a></h3>
+<p>-solar_resource_data dictionary can store values for ‘dhi’, ‘ghi’, ‘dni’, ‘poa’, ‘tamb’, etc. for full year, partial year, or single time step simulations
+<img alt="solar_resource_data_example.png" src="_images/attachment%3Asolar_resource_data_example.png" /></p>
+</section>
+<section id="doe-data-prize-datasets">
+<h3>DOE Data Prize Datasets<a class="headerlink" href="#doe-data-prize-datasets" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>System 9068 (SR_CO) system</p></li>
+<li><p>Single-axis tracking system</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Weather data</span>
+<span class="c1">#Additional data access tools available at https://github.com/NREL/pvdaq_access</span>
+<span class="n">weather_data_prize</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;9068_irradiance_data.csv&#39;</span><span class="p">)</span>
+<span class="n">amb_weather_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;9068_environment_data.csv&#39;</span><span class="p">)</span>
+<span class="n">weather_data_prize</span><span class="p">[</span><span class="s2">&quot;measured_on&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DatetimeIndex</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">weather_data_prize</span><span class="p">[</span><span class="s2">&quot;measured_on&quot;</span><span class="p">],</span> <span class="n">utc</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="n">weather_data_prize</span> <span class="o">=</span> <span class="n">weather_data_prize</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;measured_on&quot;</span><span class="p">)</span>
+<span class="n">weather_data_prize</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+
+<span class="n">amb_weather_data</span><span class="p">[</span><span class="s2">&quot;measured_on&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DatetimeIndex</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">amb_weather_data</span><span class="p">[</span><span class="s2">&quot;measured_on&quot;</span><span class="p">],</span> <span class="n">utc</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="n">amb_weather_data</span> <span class="o">=</span> <span class="n">amb_weather_data</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;measured_on&quot;</span><span class="p">)</span>
+<span class="n">amb_weather_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>weather_station_ambient_temperature_(c)_o_149727</th>
+      <th>thermocouple_pad_1_back-of-module_temperature_1_(c)_o_149728</th>
+      <th>thermocouple_pad_1_back-of-module_temperature_2_(c)_o_149729</th>
+      <th>thermocouple_pad_2_back-of-module_temperature_1_(c)_o_149730</th>
+      <th>thermocouple_pad_2_back-of-module_temperature_2_(c)_o_149731</th>
+      <th>wind_sensor_max_wind_speed_(m/s)_o_149732</th>
+      <th>wind_sensor_wind_direction_o_149733</th>
+      <th>wind_sensor_wind_direction_fast_o_149735</th>
+      <th>wind_sensor_wind_speed_(m/s)_o_149736</th>
+      <th>wind_sensor_wind_speed_fast_(m/s)_o_149737</th>
+      <th>...</th>
+      <th>inverter_module_2.4_temperature_t2_(c)_inv_149817</th>
+      <th>inverter_module_2.4_temperature_t3_(c)_inv_149818</th>
+      <th>inverter_1_max_igbt_temperature_(c)_inv_149819</th>
+      <th>inverter_1_min_igbt_temperature_(c)_inv_149820</th>
+      <th>inverter_1_derating_ambient_temperature_(c)_inv_149821</th>
+      <th>inverter_1_temperature_int_(c)_inv_149822</th>
+      <th>inverter_2__max_igbt_temperature_(c)_inv_149823</th>
+      <th>inverter_2_min_igbt_temperature_(c)_inv_149824</th>
+      <th>inverter_2_derating_ambient_temperature_(c)_inv_149825</th>
+      <th>inverter_2_temperature_int_(c)_inv_149826</th>
+    </tr>
+    <tr>
+      <th>measured_on</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2017-08-23 17:45:00</th>
+      <td>0.0</td>
+      <td>39.20</td>
+      <td>39.20</td>
+      <td>38.6</td>
+      <td>39.8</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2017-08-23 17:50:00</th>
+      <td>0.0</td>
+      <td>37.95</td>
+      <td>37.95</td>
+      <td>37.3</td>
+      <td>38.6</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2017-08-23 17:55:00</th>
+      <td>0.0</td>
+      <td>36.60</td>
+      <td>36.60</td>
+      <td>35.9</td>
+      <td>37.3</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2017-08-23 18:00:00</th>
+      <td>0.0</td>
+      <td>35.50</td>
+      <td>35.50</td>
+      <td>34.8</td>
+      <td>36.2</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2017-08-23 18:05:00</th>
+      <td>0.0</td>
+      <td>34.65</td>
+      <td>34.65</td>
+      <td>34.1</td>
+      <td>35.2</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 99 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Weather data for 2019</span>
+<span class="n">weather_data_prize_2019</span> <span class="o">=</span> <span class="n">weather_data_prize</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2019&#39;</span><span class="p">]</span>
+<span class="n">amb_weather_data_2019</span> <span class="o">=</span> <span class="n">amb_weather_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2019&#39;</span><span class="p">]</span>
+
+<span class="n">weather_data_prize_2019</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;2019_weather_data.csv&#39;</span><span class="p">)</span>
+<span class="n">amb_weather_data_2019</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;2019_amb_data.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="pv-system-design">
+<h2>PV System Design<a class="headerlink" href="#pv-system-design" title="Link to this heading">#</a></h2>
+<section id="option-1-recommended-set-up-pv-system-design-in-sam-gui">
+<h3>Option 1 (recommended): set up PV system design in SAM GUI<a class="headerlink" href="#option-1-recommended-set-up-pv-system-design-in-sam-gui" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Set module, inverter specs</p></li>
+<li><p>Set modules per string, number of parallel strings</p></li>
+<li><p>Define tilt (or tracking), azimuth, GCR</p></li>
+<li><p>Specify system losses</p></li>
+<li><p>Once system design is set, ‘Generate Code’ to PySAM json
+<img alt="pysam_code_generation.png" src="_images/attachment%3Apysam_code_generation.png" /></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create a new instance of the Pvsamv1 module</span>
+<span class="n">pv_model</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">new</span><span class="p">()</span>
+<span class="c1"># get the inputs from the JSON file from GUI</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span> <span class="s1">&#39;System_9068_pvsamv1.json&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">pv_inputs</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span> <span class="n">f</span> <span class="p">)</span>
+
+<span class="c1"># iterate through the input key-value pairs and set the module inputs</span>
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">pv_inputs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">k</span> <span class="o">!=</span> <span class="s1">&#39;number_inputs&#39;</span><span class="p">:</span>
+        <span class="n">pv_model</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">solar_resource_data</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;tz&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">7</span><span class="p">,</span> <span class="c1"># timezone</span>
+        <span class="s1">&#39;elev&#39;</span><span class="p">:</span> <span class="mf">1407.0</span><span class="p">,</span> <span class="c1"># elevation</span>
+        <span class="s1">&#39;lat&#39;</span><span class="p">:</span> <span class="mf">40.3864</span><span class="p">,</span> <span class="c1"># latitude</span>
+        <span class="s1">&#39;lon&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">104.5512</span><span class="p">,</span> <span class="c1"># longitude</span>
+        <span class="s1">&#39;year&#39;</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">weather_data_prize_2019</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">year</span><span class="p">),</span> <span class="c1"># year</span>
+        <span class="s1">&#39;month&#39;</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">weather_data_prize_2019</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">month</span><span class="p">),</span> <span class="c1"># month</span>
+        <span class="s1">&#39;day&#39;</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">weather_data_prize_2019</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">day</span><span class="p">),</span> <span class="c1"># day</span>
+        <span class="s1">&#39;hour&#39;</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">weather_data_prize_2019</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">hour</span><span class="p">),</span> <span class="c1"># hour</span>
+        <span class="s1">&#39;minute&#39;</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">weather_data_prize_2019</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">minute</span><span class="p">),</span> <span class="c1"># minute</span>
+        <span class="s1">&#39;poa&#39;</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">weather_data_prize_2019</span><span class="p">[</span><span class="s1">&#39;pyranometer_(class_a)_pad_2_poa_irradiance_(w/m2)_o_149725&#39;</span><span class="p">]),</span>
+        <span class="s1">&#39;wspd&#39;</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">amb_weather_data_2019</span><span class="p">[</span><span class="s1">&#39;wind_sensor_max_wind_speed_(m/s)_o_149732&#39;</span><span class="p">]),</span> <span class="c1"># windspeed</span>
+        <span class="s1">&#39;tdry&#39;</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">amb_weather_data_2019</span><span class="p">[</span><span class="s1">&#39;weather_station_ambient_temperature_(c)_o_149727&#39;</span><span class="p">])</span> <span class="c1"># dry bulb temperature</span>
+        <span class="p">}</span>
+<span class="c1">#pv_model.SolarResource.assign({&#39;solar_resource_data&#39;: solar_resource_data})</span>
+<span class="c1">#Assign weather data from NSRDB</span>
+<span class="n">pv_model</span><span class="o">.</span><span class="n">SolarResource</span><span class="o">.</span><span class="n">assign</span><span class="p">({</span><span class="s1">&#39;solar_resource_file&#39;</span><span class="p">:</span> <span class="s1">&#39;40.3864_-104.5512_psm3-5min_5_2021.csv&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="run-model">
+<h3>Run model<a class="headerlink" href="#run-model" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>pv_model.execute() to run SAM module</p></li>
+<li><p>Outputs in pv_model.Outputs, can export to dictionary with .export()</p></li>
+<li><p>Time series, annual summation metrics</p></li>
+<li><p>“gen”: time series kW output</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pv_model</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">out</span> <span class="o">=</span> <span class="n">pv_model</span><span class="o">.</span><span class="n">Outputs</span><span class="o">.</span><span class="n">export</span><span class="p">()</span>
+<span class="n">predictions</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;AC&quot;</span><span class="p">:</span> <span class="n">out</span><span class="p">[</span><span class="s2">&quot;gen&quot;</span><span class="p">]})</span>
+<span class="n">predictions</span><span class="p">[</span><span class="s2">&quot;AC&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pv_model</span><span class="o">.</span><span class="n">Outputs</span><span class="o">.</span><span class="n">annual_energy</span><span class="p">,</span> <span class="s2">&quot; kWh&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9580759.524304047  kWh
+</pre></div>
+</div>
+<img alt="_images/7b9913d9708fdf8a1c3f244c30ff8901e10e4553e95f2e8bf38afa7ed01362f0.png" src="_images/7b9913d9708fdf8a1c3f244c30ff8901e10e4553e95f2e8bf38afa7ed01362f0.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="compare-to-measured-data">
+<h2>Compare to Measured Data<a class="headerlink" href="#compare-to-measured-data" title="Link to this heading">#</a></h2>
+<p>-Use measured data to compare against simulated results</p>
+<p>-Can compare timestep to timestep (non-annual), or for entire year</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">measured_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;9068_ac_power_data.csv&quot;</span><span class="p">)</span>
+<span class="n">measured_data</span><span class="p">[</span><span class="s2">&quot;measured_on&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DatetimeIndex</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">measured_data</span><span class="p">[</span><span class="s2">&quot;measured_on&quot;</span><span class="p">],</span> <span class="n">utc</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="n">measured_data</span> <span class="o">=</span> <span class="n">measured_data</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;measured_on&quot;</span><span class="p">)</span>
+<span class="n">measured_data_ex</span> <span class="o">=</span> <span class="n">measured_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;2022&quot;</span><span class="p">]</span>
+<span class="n">predictions</span> <span class="o">=</span> <span class="n">predictions</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="n">measured_data_ex</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">copy</span><span class="p">())</span>
+<span class="n">measured_data_ex</span>
+<span class="n">measured_ac_kw</span> <span class="o">=</span> <span class="n">measured_data_ex</span><span class="p">[</span><span class="s2">&quot;inverter_1_ac_power_(kw)_inv_150143&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">measured_data_ex</span><span class="p">[</span><span class="s2">&quot;inverter_2_ac_power_(kw)_inv_150144&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">predictions</span><span class="p">[</span><span class="s1">&#39;AC&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">measured_ac_kw</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s2">&quot;Predicted power&quot;</span><span class="p">,</span> <span class="s2">&quot;Actual power&quot;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Power (kW)&quot;</span><span class="p">)</span>
+<span class="n">measured_ac_kwh</span> <span class="o">=</span> <span class="n">measured_ac_kw</span> <span class="o">*</span> <span class="mf">5.0</span> <span class="o">/</span> <span class="mf">60.0</span> <span class="c1">#5-minute data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/fcc16aa4dd41d4fefe0a03850a7e54f00ca66941b75c0478925b232a27777b3d.png" src="_images/fcc16aa4dd41d4fefe0a03850a7e54f00ca66941b75c0478925b232a27777b3d.png" />
+</div>
+</div>
+</section>
+<section id="financial-model">
+<h2>Financial Model<a class="headerlink" href="#financial-model" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>SAM has detailed financial models with discounted cash flows</p></li>
+<li><p>Front of meter, behind the meter perspectives</p></li>
+<li><p>Also able to run simple LCOE calculator</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lcoe_model</span> <span class="o">=</span> <span class="n">lcoe</span><span class="o">.</span><span class="n">new</span><span class="p">()</span>
+<span class="n">lcoe_model</span><span class="o">.</span><span class="n">SimpleLCOE</span><span class="o">.</span><span class="n">annual_energy</span> <span class="o">=</span> <span class="n">pv_model</span><span class="o">.</span><span class="n">Outputs</span><span class="o">.</span><span class="n">annual_energy</span>
+<span class="n">lcoe_model</span><span class="o">.</span><span class="n">SimpleLCOE</span><span class="o">.</span><span class="n">capital_cost</span> <span class="o">=</span> <span class="mi">10000000</span> <span class="c1">#capex in $, not based on actual cost data</span>
+<span class="n">lcoe_model</span><span class="o">.</span><span class="n">SimpleLCOE</span><span class="o">.</span><span class="n">fixed_charge_rate</span> <span class="o">=</span> <span class="mf">0.1</span> <span class="c1">#Can be calculated</span>
+<span class="n">lcoe_model</span><span class="o">.</span><span class="n">SimpleLCOE</span><span class="o">.</span><span class="n">fixed_operating_cost</span> <span class="o">=</span> <span class="mi">50000</span> <span class="c1">#annual opex in $, not based on actual cost data</span>
+<span class="n">lcoe_model</span><span class="o">.</span><span class="n">SimpleLCOE</span><span class="o">.</span><span class="n">variable_operating_cost</span> <span class="o">=</span> <span class="mf">0.1</span> <span class="c1">#variable operating cost in $/kWh, not based on actual cost data</span>
+<span class="n">lcoe_model</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Levelized Cost of Energy:&quot;</span><span class="p">,</span><span class="n">lcoe_model</span><span class="o">.</span><span class="n">Outputs</span><span class="o">.</span><span class="n">lcoe_fcr</span><span class="p">,</span> <span class="s2">&quot; $/kWh&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Levelized Cost of Energy: 0.2095946513777333  $/kWh
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="non-annual-simulations">
+<h2>Non-annual Simulations<a class="headerlink" href="#non-annual-simulations" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Run subset of year or single time step</p></li>
+<li><p>Monitor measured vs modeled based on incoming data streams</p></li>
+<li><p>Focused analysis on segments of year, individual days</p></li>
+<li><p>Faster parametric sweeps, iteration over input options and ranges</p></li>
+<li><p>Use solar_resource_data instead of solar_resource_file</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pv_model</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">new</span><span class="p">()</span>
+<span class="c1">#Model single inverter instead of both inverters</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span> <span class="s1">&#39;System_9068_Inv_pvsamv1.json&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">pv_inputs</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span> <span class="n">f</span> <span class="p">)</span>
+
+<span class="c1"># iterate through the input key-value pairs and set the module inputs</span>
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">pv_inputs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">k</span> <span class="o">!=</span> <span class="s1">&#39;number_inputs&#39;</span><span class="p">:</span>
+        <span class="n">pv_model</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Unassign Weather file to use dictionary of weather values instead</span>
+<span class="n">pv_model</span><span class="o">.</span><span class="n">unassign</span><span class="p">(</span><span class="s2">&quot;solar_resource_file&quot;</span><span class="p">)</span>
+<span class="c1">#Unassign other annual values</span>
+<span class="n">pv_model</span><span class="o">.</span><span class="n">unassign</span><span class="p">(</span><span class="s2">&quot;subarray1_shading_timestep&quot;</span><span class="p">)</span>
+
+<span class="c1">#Pull weather data from site for specific day with trackers not moving all day (9/16/23)</span>
+<span class="n">weather_data_prize_example</span> <span class="o">=</span> <span class="n">weather_data_prize</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">2023</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">):</span><span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">2023</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">17</span><span class="p">)]</span>
+<span class="n">amb_weather_data_example</span> <span class="o">=</span> <span class="n">amb_weather_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">2023</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">):</span><span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">2023</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">17</span><span class="p">)]</span>
+<span class="c1">#weather_data_prize_example = weather_data_prize[&quot;2023-9-16&quot;]</span>
+
+<span class="c1">#Assign solar_resource_data with poa and solar data from site data</span>
+<span class="n">solar_resource_data</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;tz&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">7</span><span class="p">,</span> <span class="c1"># timezone</span>
+        <span class="s1">&#39;elev&#39;</span><span class="p">:</span> <span class="mf">1407.0</span><span class="p">,</span> <span class="c1"># elevation</span>
+        <span class="s1">&#39;lat&#39;</span><span class="p">:</span> <span class="mf">40.3864</span><span class="p">,</span> <span class="c1"># latitude</span>
+        <span class="s1">&#39;lon&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">104.5512</span><span class="p">,</span> <span class="c1"># longitude</span>
+        <span class="s1">&#39;year&#39;</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">weather_data_prize_example</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">year</span><span class="p">),</span> <span class="c1"># year</span>
+        <span class="s1">&#39;month&#39;</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">weather_data_prize_example</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">month</span><span class="p">),</span> <span class="c1"># month</span>
+        <span class="s1">&#39;day&#39;</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">weather_data_prize_example</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">day</span><span class="p">),</span> <span class="c1"># day</span>
+        <span class="s1">&#39;hour&#39;</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">weather_data_prize_example</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">hour</span><span class="p">),</span> <span class="c1"># hour</span>
+        <span class="s1">&#39;minute&#39;</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">weather_data_prize_example</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">minute</span><span class="p">),</span> <span class="c1"># minute</span>
+        <span class="s1">&#39;poa&#39;</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">weather_data_prize_example</span><span class="p">[</span><span class="s1">&#39;pyranometer_(class_a)_pad_2_poa_irradiance_temp_compensated_(w/m2)_o_149726&#39;</span><span class="p">]),</span>
+        <span class="s1">&#39;wspd&#39;</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">amb_weather_data_example</span><span class="p">[</span><span class="s1">&#39;wind_sensor_max_wind_speed_(m/s)_o_149732&#39;</span><span class="p">]),</span> <span class="c1"># windspeed</span>
+        <span class="s1">&#39;tdry&#39;</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">amb_weather_data_example</span><span class="p">[</span><span class="s1">&#39;weather_station_ambient_temperature_(c)_o_149727&#39;</span><span class="p">])</span> <span class="c1"># dry bulb temperature</span>
+<span class="p">}</span>
+
+<span class="c1">#Assign solar_resource_data to model, set irradiance calculation mode to POA from pyranometer (determined from site metadata)</span>
+<span class="n">pv_model</span><span class="o">.</span><span class="n">SolarResource</span><span class="o">.</span><span class="n">assign</span><span class="p">({</span><span class="s2">&quot;solar_resource_data&quot;</span><span class="p">:</span> <span class="n">solar_resource_data</span><span class="p">})</span>
+<span class="n">pv_model</span><span class="o">.</span><span class="n">SolarResource</span><span class="o">.</span><span class="n">assign</span><span class="p">({</span><span class="s2">&quot;irrad_mode&quot;</span><span class="p">:</span><span class="mi">4</span><span class="p">})</span> <span class="c1">#4 - POA irradiance from pyranometer</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Run 1 day analysis</span>
+<span class="n">pv_model</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1">#Load tracker data</span>
+<span class="n">tracker_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;9068_tracker_data.csv&quot;</span><span class="p">)</span>
+<span class="n">tracker_data</span><span class="p">[</span><span class="s2">&quot;measured_on&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DatetimeIndex</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">tracker_data</span><span class="p">[</span><span class="s2">&quot;measured_on&quot;</span><span class="p">],</span> <span class="n">utc</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="n">tracker_data</span> <span class="o">=</span> <span class="n">tracker_data</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;measured_on&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="custom-tracker-rotation-angles">
+<h3>Custom Tracker Rotation Angles<a class="headerlink" href="#custom-tracker-rotation-angles" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>User-defined tracker rotation angles rather than default SAM sun-following algorithm</p></li>
+<li><p>SAM covers sun-following tracker algorithm with backtracking, slope-aware backtracking (single fixed slope)</p></li>
+<li><p>Useful for analyzing misaligned tracker, stuck trackers, custom tracker algorithms</p></li>
+<li><p>Currently SDK only, looking at desktop tool integration in future</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Pull tracker rotation angles from site data</span>
+<span class="n">stuck_tracker_data</span> <span class="o">=</span> <span class="n">tracker_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">2023</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">):</span><span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">2023</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">17</span><span class="p">),</span> <span class="s2">&quot;tracker_1.1-101_tracker_angle_trkr_149827&quot;</span><span class="p">]</span>
+
+<span class="c1">#Turn off custom_rotation_angles</span>
+<span class="n">pv_model</span><span class="o">.</span><span class="n">SystemDesign</span><span class="o">.</span><span class="n">subarray1_use_custom_rot_angles</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">pv_model</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">out</span> <span class="o">=</span> <span class="n">pv_model</span><span class="o">.</span><span class="n">Outputs</span><span class="o">.</span><span class="n">export</span><span class="p">()</span>
+<span class="n">tracker_predictions</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;sun_angles&quot;</span><span class="p">:</span> <span class="n">out</span><span class="p">[</span><span class="s1">&#39;subarray1_axisrot&#39;</span><span class="p">]})</span>
+
+<span class="c1">#Turn on custom rotation angles, set array to tracker angles from array</span>
+<span class="n">pv_model</span><span class="o">.</span><span class="n">SystemDesign</span><span class="o">.</span><span class="n">subarray1_use_custom_rot_angles</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">pv_model</span><span class="o">.</span><span class="n">SystemDesign</span><span class="o">.</span><span class="n">subarray1_custom_rot_angles_array</span> <span class="o">=</span> <span class="n">stuck_tracker_data</span>
+<span class="n">pv_model</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">out</span> <span class="o">=</span> <span class="n">pv_model</span><span class="o">.</span><span class="n">Outputs</span><span class="o">.</span><span class="n">export</span><span class="p">()</span>
+<span class="n">tracker_predictions</span><span class="p">[</span><span class="s2">&quot;Stuck_tracking&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">out</span><span class="p">[</span><span class="s2">&quot;gen&quot;</span><span class="p">]</span>
+<span class="n">tracker_predictions</span><span class="p">[</span><span class="s2">&quot;custom_angles&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">out</span><span class="p">[</span><span class="s2">&quot;subarray1_axisrot&quot;</span><span class="p">]</span>
+<span class="n">tracker_predictions</span><span class="p">[</span><span class="s2">&quot;calculated_temps&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">out</span><span class="p">[</span><span class="s2">&quot;subarray1_celltemp&quot;</span><span class="p">]</span>
+
+<span class="c1">#Look at results</span>
+<span class="n">measured_data_stuck</span> <span class="o">=</span> <span class="n">measured_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">2023</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">):</span><span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">2023</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">17</span><span class="p">)]</span>
+<span class="n">measured_data_kW</span> <span class="o">=</span> <span class="n">measured_data_stuck</span><span class="p">[</span><span class="s2">&quot;inverter_1_ac_power_(kw)_inv_150143&quot;</span><span class="p">]</span> <span class="c1">#+ measured_data_stuck[&quot;inverter_2_ac_power_(kw)_inv_150144&quot;]</span>
+<span class="c1">#measured_data_kW = measured_data_stuck[&quot;inverter_2_ac_power_(kw)_inv_150144&quot;]</span>
+<span class="n">tracker_predictions</span> <span class="o">=</span> <span class="n">tracker_predictions</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="n">measured_data_stuck</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">copy</span><span class="p">())</span>
+<span class="n">tracker_predictions</span><span class="p">[</span><span class="s2">&quot;Stuck_tracking&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">measured_data_kW</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s2">&quot;Non-moving tracker&quot;</span><span class="p">,</span> <span class="s2">&quot;Measured&quot;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Power (kW)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Power (kW)&#39;)
+</pre></div>
+</div>
+<img alt="_images/a01d3f5bef45b090756ba9f7170af8a2f55d5479a34a54f5f144d55aa9193c14.png" src="_images/a01d3f5bef45b090756ba9f7170af8a2f55d5479a34a54f5f144d55aa9193c14.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tracker_predictions</span><span class="p">[</span><span class="s2">&quot;sun_angles&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">tracker_predictions</span><span class="p">[</span><span class="s2">&quot;custom_angles&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">stuck_tracker_data</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s2">&quot;Sun position angles&quot;</span><span class="p">,</span> <span class="s2">&quot;Custom angles&quot;</span><span class="p">,</span> <span class="s2">&quot;Measured tracker data&quot;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Tracker rotation angle (degrees)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Tracker rotation angle (degrees)&#39;)
+</pre></div>
+</div>
+<img alt="_images/8e47f27b1659bc8490ebb953fc220bc780405e0c1fd5354f76ec79b65244b804.png" src="_images/8e47f27b1659bc8490ebb953fc220bc780405e0c1fd5354f76ec79b65244b804.png" />
+</div>
+</div>
+</section>
+<section id="custom-module-temperatures">
+<h3>Custom module temperatures<a class="headerlink" href="#custom-module-temperatures" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Replace cell temperature in calculation with user-defined cell temperatures</p></li>
+<li><p>Useful for using cell temperature models not in SAM, using measured temperatures</p></li>
+<li><p>Currently SDK only, evaluating for future integration into desktop tool</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pv_model</span><span class="o">.</span><span class="n">SystemDesign</span><span class="o">.</span><span class="n">subarray1_use_custom_cell_temp</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1">#Turn on custom cell temperatures</span>
+<span class="n">pv_model</span><span class="o">.</span><span class="n">SystemDesign</span><span class="o">.</span><span class="n">subarray1_custom_cell_temp_array</span> <span class="o">=</span> <span class="n">amb_weather_data_example</span><span class="p">[</span><span class="s2">&quot;thermocouple_pad_1_back-of-module_temperature_1_(c)_o_149728&quot;</span><span class="p">]</span>
+<span class="n">pv_model</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span>
+<span class="n">out</span> <span class="o">=</span> <span class="n">pv_model</span><span class="o">.</span><span class="n">Outputs</span><span class="o">.</span><span class="n">export</span><span class="p">()</span>
+<span class="n">tracker_predictions</span><span class="p">[</span><span class="s2">&quot;custom_temps&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">out</span><span class="p">[</span><span class="s2">&quot;subarray1_celltemp&quot;</span><span class="p">]</span>
+<span class="n">tracker_predictions</span><span class="p">[</span><span class="s2">&quot;calculated_temps&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">tracker_predictions</span><span class="p">[</span><span class="s2">&quot;custom_temps&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s2">&quot;Temperature Model&quot;</span><span class="p">,</span> <span class="s2">&quot;Custom Temperature&quot;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Degrees Celsius&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Degrees Celsius&#39;)
+</pre></div>
+</div>
+<img alt="_images/6bbbb3e8c4c1cb1afb3c0093801e44e10dfa818dc250e9c7a3cc7f3d8a84a57b.png" src="_images/6bbbb3e8c4c1cb1afb3c0093801e44e10dfa818dc250e9c7a3cc7f3d8a84a57b.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modeling-capabilities-of-pysam-and-pvlib-with-use-cases-for-doe-data-prize-datasets">Modeling capabilities of PySAM and pvlib with use cases for DOE Data Prize datasets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-pysam-case">Setting up PySAM case</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-pysam-modules">1. Import PySAM modules</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-in-weather-data">2. Load in weather data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-pv-system-design">3. Set up PV system design</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-model-timestep-by-timestep">4. Run model timestep-by-timestep</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compare-results-to-measured-plant-data">5. Compare results to measured plant data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extra-model-features-for-monitoring-etc">6. Extra model features for monitoring, etc.</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#weather-data">Weather Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#option-1-read-from-file">Option 1. Read from file</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#option-2-read-from-dictionary">Option 2: Read from dictionary</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#doe-data-prize-datasets">DOE Data Prize Datasets</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pv-system-design">PV System Design</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#option-1-recommended-set-up-pv-system-design-in-sam-gui">Option 1 (recommended): set up PV system design in SAM GUI</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-model">Run model</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compare-to-measured-data">Compare to Measured Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#financial-model">Financial Model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#non-annual-simulations">Non-annual Simulations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#custom-tracker-rotation-angles">Custom Tracker Rotation Angles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#custom-module-temperatures">Custom module temperatures</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kevin Anderson, Matt Prilliman
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
