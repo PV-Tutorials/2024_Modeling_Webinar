@@ -612,14 +612,15 @@ document.write(`
 
 <span class="n">axes</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Measured temperature [°C]&#39;</span><span class="p">)</span>
 <span class="n">axes</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="p">(</span><span class="mf">0.075</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.6</span><span class="p">))</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;System temperature measurements&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x26c784abf10&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0.98, &#39;System temperature measurements&#39;)
 </pre></div>
 </div>
-<img alt="_images/104f949cbefa7b8ca145557fb42a920e6b2d13ad05d493316e4c4ae6cd456238.png" src="_images/104f949cbefa7b8ca145557fb42a920e6b2d13ad05d493316e4c4ae6cd456238.png" />
+<img alt="_images/28ca08340e194b3b8755d5bfe60d0f9824f8940cb811b3def654cb84096efd87.png" src="_images/28ca08340e194b3b8755d5bfe60d0f9824f8940cb811b3def654cb84096efd87.png" />
 </div>
 </div>
 <p>Qualitatively, these temperature data seem reasonable, although this particular day looks like it had fairly variable weather.</p>
@@ -728,14 +729,15 @@ pvlib.temperature.faiman_rad
 
 <span class="n">axes</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Temperature [°C]&#39;</span><span class="p">)</span>
 <span class="n">axes</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="p">(</span><span class="mf">0.075</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.7</span><span class="p">))</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Modeled vs measured: Faiman model&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x26c00370b80&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0.98, &#39;Modeled vs measured: Faiman model&#39;)
 </pre></div>
 </div>
-<img alt="_images/bc79a4a42a4d168d34d13389ac6b8e3fe1e9e58a0a07c8c4f773f581952b4d3c.png" src="_images/bc79a4a42a4d168d34d13389ac6b8e3fe1e9e58a0a07c8c4f773f581952b4d3c.png" />
+<img alt="_images/f31aa076c93b729d378c69d949b3a4038a8871dde7a3509d143e94acddccc566.png" src="_images/f31aa076c93b729d378c69d949b3a4038a8871dde7a3509d143e94acddccc566.png" />
 </div>
 </div>
 <p>The general trends are correct, but it looks like the model isn’t <em>quite</em> right; the modeled trace is “spikier” and seem to be changing too early.  Put another way, the observed temperature values tend to lag behind and have some inertia compared with the model.</p>
@@ -765,14 +767,15 @@ pvlib.temperature.faiman_rad
 
 <span class="n">axes</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Temperature [°C]&#39;</span><span class="p">)</span>
 <span class="n">axes</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="p">(</span><span class="mf">0.075</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.7</span><span class="p">))</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Modeled vs measured: Faiman model, plus Prilliman thermal transience&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x26c25ab6c80&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0.98, &#39;Modeled vs measured: Faiman model, plus Prilliman thermal transience&#39;)
 </pre></div>
 </div>
-<img alt="_images/5ad89f16d1e85b313f71320a46c42267027dee932d0288adc34b065e0af4b062.png" src="_images/5ad89f16d1e85b313f71320a46c42267027dee932d0288adc34b065e0af4b062.png" />
+<img alt="_images/7e128be8e59bcc778de3b12ad19c1d6b31233c367acccc134a7317e01a97aa58.png" src="_images/7e128be8e59bcc778de3b12ad19c1d6b31233c367acccc134a7317e01a97aa58.png" />
 </div>
 </div>
 <p>A significant improvement!  The model is still not perfect, but for much of the day it falls within the spread of the measurements themselves.</p>
@@ -852,8 +855,8 @@ pvlib.temperature.faiman_rad
     <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$T_</span><span class="si">{mod}</span><span class="s1">$ (observed) [°C]&#39;</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">col</span><span class="p">)</span>
 
-    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">-</span><span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;MBE: </span><span class="si">{</span><span class="n">mbe</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">°&#39;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">-</span><span class="mi">25</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;RMSE: </span><span class="si">{</span><span class="n">rmse</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">°&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">-</span><span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;MBE: </span><span class="si">{</span><span class="n">mbe</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">°C&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">-</span><span class="mi">25</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;RMSE: </span><span class="si">{</span><span class="n">rmse</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">°C&#39;</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">-</span><span class="mi">25</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;r$^2$: </span><span class="si">{</span><span class="n">r2</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 
 <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$T_{{mod}}$ (modeled) [°C]&#39;</span><span class="p">)</span>
@@ -862,7 +865,7 @@ pvlib.temperature.faiman_rad
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/aba3cee6cae339660bba22d043e85ed0644248b223b6d6477e1fca3c87508fd5.png" src="_images/aba3cee6cae339660bba22d043e85ed0644248b223b6d6477e1fca3c87508fd5.png" />
+<img alt="_images/74169595bee6209c23c2d57ddcbfea97bea3484094a892e24e20d006663bbc10.png" src="_images/74169595bee6209c23c2d57ddcbfea97bea3484094a892e24e20d006663bbc10.png" />
 </div>
 </div>
 <p>What have we achieved?</p>
@@ -916,7 +919,7 @@ pvlib.temperature.faiman_rad
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x26c78722410&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x1921a72d360&gt;
 </pre></div>
 </div>
 <img alt="_images/f6b84761f434b554c13a42fc1427199fccaacc88c304e66478809955112e5f79.png" src="_images/f6b84761f434b554c13a42fc1427199fccaacc88c304e66478809955112e5f79.png" />
@@ -960,7 +963,7 @@ pvlib.temperature.faiman_rad
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x26c00fe3b50&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x19218469e70&gt;
 </pre></div>
 </div>
 <img alt="_images/9b8126837f281bff540f236337d2b7333a120cb6d631e28332eb3230a31b5291.png" src="_images/9b8126837f281bff540f236337d2b7333a120cb6d631e28332eb3230a31b5291.png" />
@@ -988,7 +991,7 @@ pvlib.temperature.faiman_rad
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x26c01036f50&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x192192b3880&gt;
 </pre></div>
 </div>
 <img alt="_images/bfaef50d8b7881235f9eee5e8aaae235ed82b0b7f94db36eb3943a05123674cd.png" src="_images/bfaef50d8b7881235f9eee5e8aaae235ed82b0b7f94db36eb3943a05123674cd.png" />
@@ -1015,7 +1018,7 @@ pvlib.temperature.faiman_rad
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x26c01037dc0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x19218eafc70&gt;
 </pre></div>
 </div>
 <img alt="_images/3a4a7c8baf621d6103041d64e48ab4d5600984153ff8e1f20322642f66efded0.png" src="_images/3a4a7c8baf621d6103041d64e48ab4d5600984153ff8e1f20322642f66efded0.png" />
