@@ -9,13 +9,6 @@ browser based interactive Python notebook.
 
 The tutorial is available here: https://pv-tutorials.github.io/2024_Modeling_Webinar
 
-### Jupyter Books
-
-The tutorial content is also hosted as a [Jupyter book](https://jupyterbook.org/intro.html):
-
-[![Jupyter Book Badge](https://jupyterbook.org/badge.svg)](<https://pv-tutorials.github.io/2024_Modeling_Webinar/>)
-
-
 ### Running Locally
 
 You can run the tutorial locally with
