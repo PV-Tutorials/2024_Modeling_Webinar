@@ -3,6 +3,8 @@ Welcome! The goal of this tutorial is to introduce attendees to the following pa
 * PySAM: https://nrel-pysam.readthedocs.io/en/main/
 * pvlib-python: https://pvlib-python.readthedocs.io/en/stable/
 
+A webinar recording of the tutorial can be [found here.](https://www.youtube.com/watch?v=T4LJd894JsE) 
+
 ## Tutorial Setup
 These tutorials are made with [Jupyter](https://jupyter.org), which is a
 browser based interactive Python notebook.
